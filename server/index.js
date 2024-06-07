@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:3000", "https://your-vercel-deployment-url.vercel.app"],  // Use an array to include both URLs
+    origin: ["http://localhost:3000", "https://your-vercel-deployment-url.vercel.app","https://shopping-webapp-be.onrender.com/"],  // Use an array to include both URLs
 }));
 
 // Connect to the database
@@ -28,10 +28,7 @@ app.get("/", (req, res) => {
     res.send("<h1>Backend is Running and this is '/' Route</h1>");
 });
 
-if(process.env.NODE_ENV ==  "producation") {
-    app.use(express.static("client/build"));
-    
-}
+
 
 app.listen(PORT, () => {
     console.log(`App is listening at ${PORT}`);
