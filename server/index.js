@@ -28,6 +28,11 @@ app.get("/", (req, res) => {
     res.send("<h1>Backend is Running and this is '/' Route</h1>");
 });
 
+if(process.env.NODE_ENV ==  "producation") {
+    app.use(express.static("client/build"));
+    
+}
+
 app.listen(PORT, () => {
     console.log(`App is listening at ${PORT}`);
 });
