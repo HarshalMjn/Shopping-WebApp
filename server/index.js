@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:3000", "https://your-vercel-deployment-url.vercel.app","https://shopping-webapp-be.onrender.com/"],  // Use an array to include both URLs
+    origin: ["http://localhost:3000", "https://your-vercel-deployment-url.vercel.app","https://shopping-webapp-be.onrender.com"],  // Use an array to include both URLs
 }));
 
 // Connect to the database
