@@ -25,7 +25,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/login', formData);
+      const response = await axios.post('https://shopping-webapp-be.onrender.com/api/v1/login', formData);
       console.log("LOGIN API RESPONSE:", response.data);
       const user = response.data.checkuser;
       console.log(user);
