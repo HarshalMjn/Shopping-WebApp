@@ -19,10 +19,9 @@ const PaymentPage = () => {
 
   const handlePayment = async () => {
     try {
-      const orderUrl = "https://shopping-webapp-be.onrender.com/api/v1/orders";
+      const orderUrl = "http://localhost:4000/api/v1/orders";
       const { data } = await axios.post(orderUrl, { amount: totalAmount })
-      
-      
+    
       console.log(data);
 
       const { id: order_id, amount, currency } = data.data;

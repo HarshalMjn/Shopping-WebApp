@@ -30,7 +30,7 @@ function SignupForm() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://shopping-webapp-be.onrender.com/api/v1/signup', formData);
+      const response = await axios.post('http://localhost:4000/api/v1/signup', formData);
       console.log("SIGNUP API RESPONSE:", response.data);
 
       const { user } = response.data;
