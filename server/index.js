@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 4000;
 app.use(express.json());
 
  app.use(cors({
-    origin: ["http://localhost:3000","https://shopping-web-app-fe.vercel.app","https://shopping-web-app-pruc983a5-harshalmjns-projects.vercel.app/"]  // Use an array to include both URLs
+    origin: ["http://localhost:3000","https://shoppingharsh.vercel.app","https://shopping-web-app-nine.vercel.app"]  // Use an array to include both URLs
  }));
 
 // const corsOptions = {
