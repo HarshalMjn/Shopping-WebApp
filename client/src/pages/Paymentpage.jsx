@@ -27,7 +27,7 @@ const PaymentPage = () => {
       const { id: order_id, amount, currency } = data.data;
   
       const options = {
-        key: 'rzp_test_NXwZw43dEd79TM', // Replace with your Razorpay Key ID
+        key: process.env.KEY_ID, // Replace with your Razorpay Key ID
         amount,
         currency,
         name: user.name,
