@@ -14,7 +14,7 @@ app.use(express.json());
 // }));
 
 const corsOptions = {
-    origin:["https://shopping-web-app-fe.vercel.app","http://localhost:3000"],
+    origin:["https://shopping-web-app-fe.vercel.app","https://shopping-web-app-pruc983a5-harshalmjns-projects.vercel.app/","http://localhost:3000"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",};
   app.use(cors(corsOptions));
 
