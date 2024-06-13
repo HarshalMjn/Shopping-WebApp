@@ -20,18 +20,17 @@ const PaymentPage = () => {
   const handlePayment = async () => {
     try {
       const orderUrl = "http://localhost:4000/api/v1/orders";
-      const { data } = await axios.post(orderUrl, { amount: totalAmount })
-    
+      const { data } = await axios.post(orderUrl, { amount: totalAmount });
+      
       console.log(data);
-
+  
       const { id: order_id, amount, currency } = data.data;
-
+  
       const options = {
         key: 'rzp_test_NXwZw43dEd79TM', // Replace with your Razorpay Key ID
         amount,
         currency,
         name: user.name,
-       
         description: 'Test Transaction',
         order_id,
         handler: async (response) => {
@@ -40,18 +39,16 @@ const PaymentPage = () => {
           //   razorpay_payment_id: response.razorpay_payment_id,
           //   razorpay_signature: response.Cf9wyPt4CGrj1SAip6pdf6W0,
           // };
-
-         // const verifyUrl = "http://localhost:4000/api/v1/verify";
-         // const verifyResponse = await axios.post(verifyUrl, paymentData);
-
-        // if (verifyResponse.data.message === 'Payment Verified Successfully') {
-         
-        
+  
+          // const verifyUrl = "http://localhost:4000/api/v1/verify";
+          // const verifyResponse = await axios.post(verifyUrl, paymentData);
+  
+          // if (verifyResponse.data.message === 'Payment Verified Successfully') {
           dispatch(removeAll()); // Clear the cart
           navigate('/success'); // Redirect to the success page
-         // } else {
-        //    alert('Payment Verification Failed');
-        // }
+          // } else {
+          //   alert('Payment Verification Failed');
+          // }
         },
         prefill: {
           name: user.name,
@@ -62,14 +59,27 @@ const PaymentPage = () => {
           color: '#012652',
         },
       };
-
+  
       const rzp1 = new window.Razorpay(options);
-      rzp1.open();
+  
+      // Function to check if the device is mobile
+      const isMobileDevice = () => {
+        return /Mobi|Android/i.test(navigator.userAgent);
+      };
+  
+      // Open Razorpay payment form
+      if (isMobileDevice()) {
+        rzp1.open();
+      } else {
+        // For desktop, use the default method
+        rzp1.open();
+      }
     } catch (error) {
       console.error('Payment Failed', error);
       alert('Something went wrong. Please try again.');
     }
   };
+  
 
   return (
     <div>
