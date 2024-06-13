@@ -14,7 +14,7 @@ app.use(express.json());
 // }));
 
 const corsOptions = {
-    origin:["https://shopping-webapp-be.onrender.com","http://localhost:3000"],
+    origin:["https://shopping-web-rhefbegla-harshalmjns-projects.vercel.app","http://localhost:3000"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",};
   app.use(cors(corsOptions));
 
