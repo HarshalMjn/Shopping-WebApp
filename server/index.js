@@ -8,9 +8,15 @@ dotenv.config();  // Make sure this is at the top
 const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
-app.use(cors({
-    origin: ["http://localhost:3000","https://shopping-webapp-be.onrender.com"]  // Use an array to include both URLs
-}));
+
+// app.use(cors({
+//     origin: ["http://localhost:3000","https://shopping-webapp-be.onrender.com/*"]  // Use an array to include both URLs
+// }));
+
+const corsOptions = {
+    origin:["https://shopping-webapp-be.onrender.com","http://localhost:3000"],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",};
+  app.use(cors(corsOptions));
 
 // Connect to the database
 require("./config/database").connect();
